@@ -17,7 +17,7 @@ You will find this same information in the readme.txt of the plugin and on our w
 Payment Receipt for Peru where the option to choose bill or Invoice or others is added.
 
 
-More information about the plugin in [Payment Receipt for Peru for Woocommerce](https://renzotejada.com/comprobante-de-pago/ "Payment Receipt for Peru for Woocommerce")
+More information about the plugin in [Payment Receipt for Peru for Woocommerce](https://renzotejada.com/comprobante-de-pago-peru/ "Payment Receipt for Peru for Woocommerce")
 
 == Installation ==
 
@@ -67,6 +67,9 @@ The information was obtained from the following urls:
 
 
 == Changelog ==
+
+= 0.0.6 =
+Fix: url mal formado.
 
 = 0.0.5 =
 Fix Don’t use esc_ functions to sanitize.
