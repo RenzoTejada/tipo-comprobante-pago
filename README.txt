@@ -1,9 +1,9 @@
-=== Tipo Comprobante Perú ===
+=== Comprobante de Pago Perú ===
 Contributors: renzotejada
 Tags: boleta, factura, dni, ruc, perú
 Requires at least: 5.2
 Tested up to: 5.7.1
-Stable tag: 0.0.5
+Stable tag: trunk
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -67,6 +67,9 @@ The information was obtained from the following urls:
 
 
 == Changelog ==
+
+= 0.0.7 =
+Fix: rename plugin como manda wp.
 
 = 0.0.6 =
 Fix: url mal formado.
