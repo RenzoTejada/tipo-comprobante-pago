@@ -16,6 +16,16 @@ You will find this same information in the readme.txt of the plugin and on our w
 
 Payment Receipt for Peru where the option to choose bill or Invoice or others is added.
 
+The Peru Payment Voucher Plugin for WooCooomerce will help a lot to online shops, as this tool will allow you to add these fields 
+in the checkout part and you can register it directly.
+
+The plugin has the following features:
+
+1. You can enable more than two types of vouchers (BOUCHET and INVOICE) .
+
+2. Add the voucher type field in your checkout page.
+
+3. From the order detail you will be able to view the customer's saved information.
 
 More information about the plugin in [Payment Receipt for Peru for Woocommerce](https://renzotejada.com/comprobante-de-pago-peru/ "Payment Receipt for Peru for Woocommerce")
 
@@ -67,6 +77,12 @@ The information was obtained from the following urls:
 
 
 == Changelog ==
+
+= 0.0.9 (12/05/2021) =
+Fix: validando versión WC 5.3.0.
+
+= 0.0.8 (12/05/2021) =
+Fix: rename de version estable.
 
 = 0.0.7 =
 Fix: rename plugin como manda wp.

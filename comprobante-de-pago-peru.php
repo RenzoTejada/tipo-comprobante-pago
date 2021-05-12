@@ -9,14 +9,14 @@
  * Plugin Name:       Comprobante de Pago Perú
  * Plugin URI:        https://renzotejada.com/comprobante-de-pago/
  * Description:       Payment Receipt for Peru where the option to choose bill or Invoice or others is added.
- * Version:           0.0.7
+ * Version:           0.0.9
  * Author:            Renzo Tejada
  * Author URI:        https://renzotejada.com/
  * License:           GNU General Public License v3.0
  * License URI:       http://www.gnu.org/licenses/gpl-3.0.html
  * Text Domain:       rt-tipo-comprobante
  * Domain Path:       /language
- * WC tested up to:   5.2.2
+ * WC tested up to:   5.3.0
  * WC requires at least: 2.6
  */
 if (!defined('ABSPATH')) {
