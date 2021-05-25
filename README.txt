@@ -2,7 +2,7 @@
 Contributors: renzotejada
 Tags: boleta, factura, dni, ruc, perú
 Requires at least: 5.2
-Tested up to: 5.7.1
+Tested up to: 5.7.2
 Stable tag: trunk
 Requires PHP: 5.6
 License: GPLv2 or later
@@ -77,6 +77,12 @@ The information was obtained from the following urls:
 
 
 == Changelog ==
+
+= 0.1.1 (12/05/2021) =
+fix: corrección de link del notice.
+
+= 0.1.0 (12/05/2021) =
+fix: validando version WP 5.7.2.
 
 = 0.0.9 (12/05/2021) =
 Fix: validando versión WC 5.3.0.

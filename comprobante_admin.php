@@ -170,7 +170,7 @@ function comprobante_fe_errornosetup()
 {
     ?>
     <div class="error notice">
-        <p><?php _e('receipt type: You have not yet configured any type of document (invoice, receipt) to make purchases. Configure it ','rt-tipo-comprobante'); ?> <a href="<?php admin_url('admin.php?page=comprobante_settings'); ?>"><?php _e('Here','rt-tipo-comprobante'); ?></a></p>
+        <p><?php _e('receipt type: You have not yet configured any type of document (invoice, receipt) to make purchases. Configure it ','rt-tipo-comprobante'); ?> <a href="<?php echo admin_url('admin.php?page=comprobante_settings'); ?>"><?php _e('Here','rt-tipo-comprobante'); ?></a></p>
     </div>
     <?php
 }
