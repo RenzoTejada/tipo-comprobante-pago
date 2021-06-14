@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Comprobante de Pago Perú\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2021-05-10 19:29+0000\n"
-"PO-Revision-Date: 2021-05-10 19:39+0000\n"
+"PO-Revision-Date: 2021-06-14 22:59+0000\n"
 "Last-Translator: \n"
 "Language-Team: Español de Perú\n"
 "Language: es_PE\n"
@@ -19,40 +19,36 @@ msgstr ""
 msgid "BILL"
 msgstr "BOLETA"
 
-#: comprobante_admin.php:85 comprobante_admin.php:122
+#: comprobante_admin.php:85 comprobante_admin.php:121
 msgid "Bill"
 msgstr "Boleta"
-
-#. Description of the plugin
-msgid "Comprobante de Pago para Perú"
-msgstr "Comprobante de Pago para Perú"
 
 #. Name of the plugin
 msgid "Comprobante de Pago Perú"
 msgstr "Comprobante de Pago Perú"
 
-#: comprobante_admin.php:107
+#: comprobante_admin.php:106
 msgid "Default document at purchase"
 msgstr "Documento por defecto en la compra"
 
-#: comprobante_admin.php:113
+#: comprobante_admin.php:112
 msgid "Default document on purchase"
 msgstr "Documento por defecto en la compra"
 
-#: comprobante_checkout.php:37 comprobante_checkout.php:157
-#: comprobante_checkout.php:166 comprobante_checkout.php:175
+#: comprobante_checkout.php:37 comprobante_checkout.php:163
+#: comprobante_checkout.php:172 comprobante_checkout.php:181
 msgid "DNI"
 msgstr "DNI"
 
-#: comprobante_admin.php:194
+#: comprobante_admin.php:193
 msgid "Go to"
 msgstr "Ir a"
 
-#: comprobante_admin.php:57 comprobante_admin.php:182
+#: comprobante_admin.php:57 comprobante_admin.php:181
 msgid "Help"
 msgstr "Ayuda"
 
-#: comprobante_admin.php:174
+#: comprobante_admin.php:173
 msgid "Here"
 msgstr "Aquí"
 
@@ -61,10 +57,11 @@ msgid "https://renzotejada.com/"
 msgstr "https://renzotejada.com/"
 
 #. URI of the plugin
-msgid "https://renzotejada.com/comprobante-de-pago/"
-msgstr "https://renzotejada.com/comprobante-de-pago/"
+#| msgid "https://renzotejada.com/comprobante-de-pago/"
+msgid "https://renzotejada.com/comprobante-de-pago-peru/"
+msgstr "https://renzotejada.com/comprobante-de-pago-peru/"
 
-#: comprobante_admin.php:192
+#: comprobante_admin.php:191
 msgid "I have other questions"
 msgstr "Tengo otras preguntas"
 
@@ -72,11 +69,11 @@ msgstr "Tengo otras preguntas"
 msgid "INVOICE"
 msgstr "FACTURA"
 
-#: comprobante_admin.php:97 comprobante_admin.php:130
+#: comprobante_admin.php:96 comprobante_admin.php:129
 msgid "Invoice"
 msgstr "Factura"
 
-#: comprobante_admin.php:186
+#: comprobante_admin.php:185
 msgid ""
 "It allows you to integrate your Woocommerce the type of document of the "
 "customers in the checkout."
@@ -84,11 +81,19 @@ msgstr ""
 "Te permite integrar en tu Woocommerce el tipo de documento de los clientes "
 "en el checkout."
 
+#. Description of the plugin
+msgid ""
+"Payment Receipt for Peru where the option to choose bill or Invoice or "
+"others is added."
+msgstr ""
+"Recibo de pago para Perú en el que se añade la opción de elegir recibo o "
+"factura u otros."
+
 #: comprobante_admin.php:12
 msgid "Peru Receipt"
 msgstr "Comprobante Perú"
 
-#: comprobante_admin.php:165
+#: comprobante_admin.php:164
 msgid ""
 "Peru receipt type for WooCommerce: The module needs to have WooCommerce "
 "installed to operate correctly."
@@ -102,7 +107,11 @@ msgstr ""
 "Tipo de Comprobante Perú | integración de boleta o factura en Woocommerce "
 "checkout"
 
-#: comprobante_checkout.php:115
+#: comprobante_checkout.php:105
+msgid "Please enter 8 digits of your DNI"
+msgstr "Por favor, introduzca los 8 dígitos de su DNI"
+
+#: comprobante_checkout.php:121
 msgid "Please enter your Company"
 msgstr "Por favor, introduzca su Empresa"
 
@@ -118,11 +127,11 @@ msgstr "Por favor, introduzca sus Nombres"
 msgid "Please enter your Last Name"
 msgstr "Por favor, introduzca sus Apellidos"
 
-#: comprobante_checkout.php:111
+#: comprobante_checkout.php:117
 msgid "Please enter your Responsible"
 msgstr "Por favor, introduzca el Responsable"
 
-#: comprobante_checkout.php:107
+#: comprobante_checkout.php:113
 msgid "Please enter your RUC"
 msgstr "Por favor, introduzca su RUC"
 
@@ -134,7 +143,7 @@ msgstr "Por favor, introduzca su Tipo de Comprobante"
 msgid "Receipt"
 msgstr "Comprobante"
 
-#: comprobante_admin.php:174
+#: comprobante_admin.php:173
 msgid ""
 "receipt type: You have not yet configured any type of document (invoice, "
 "receipt) to make purchases. Configure it "
@@ -146,34 +155,34 @@ msgstr ""
 msgid "Renzo Tejada"
 msgstr "Renzo Tejada"
 
-#: comprobante_checkout.php:51 comprobante_checkout.php:159
-#: comprobante_checkout.php:168 comprobante_checkout.php:177
+#: comprobante_checkout.php:51 comprobante_checkout.php:165
+#: comprobante_checkout.php:174 comprobante_checkout.php:183
 msgid "Responsible"
 msgstr "Responsable"
 
-#: comprobante_admin.php:194
+#: comprobante_admin.php:193
 msgid "RT - Contact"
 msgstr "RT - Contacto"
 
-#: comprobante_checkout.php:44 comprobante_checkout.php:158
-#: comprobante_checkout.php:167 comprobante_checkout.php:176
+#: comprobante_checkout.php:44 comprobante_checkout.php:164
+#: comprobante_checkout.php:173 comprobante_checkout.php:182
 msgid "RUC"
 msgstr "RUC"
 
-#: comprobante_admin.php:137
+#: comprobante_admin.php:136
 msgid "Save Changes"
 msgstr "Guardar Cambios"
 
-#: tipo-comprobante.php:39
+#: comprobante-de-pago-peru.php:39
 msgid "Settings"
 msgstr "Ajustes"
 
-#: comprobante_admin.php:190
+#: comprobante_admin.php:189
 msgid "This plugin is totally free."
 msgstr "Este plugin es totalmente gratuito."
 
-#: comprobante_checkout.php:156 comprobante_checkout.php:165
-#: comprobante_checkout.php:174
+#: comprobante_checkout.php:162 comprobante_checkout.php:171
+#: comprobante_checkout.php:180
 msgid "Type of Receipt"
 msgstr "Tipo de Comprobante"
 
@@ -189,10 +198,10 @@ msgstr "Tipo de Comprobante habilitado en su tienda"
 msgid "Was saved successfully"
 msgstr "Se ha guardado con éxito"
 
-#: comprobante_admin.php:184
+#: comprobante_admin.php:183
 msgid "What does this module do?"
 msgstr "¿Qué hace este módulo?"
 
-#: comprobante_admin.php:188
+#: comprobante_admin.php:187
 msgid "What is the cost of the module?"
 msgstr "¿Cuánto cuesta el módulo?"
