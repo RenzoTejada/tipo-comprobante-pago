@@ -29,6 +29,32 @@ The plugin has the following features:
 
 More information about the plugin in [Payment Receipt for Peru for Woocommerce](https://renzotejada.com/comprobante-de-pago-peru/ "Payment Receipt for Peru for Woocommerce")
 
+= View more plugins =
+
+For additional functionality, check out our companion plugin, such as:
+
+* [Ubigeo Perú](https://wordpress.org/plugins/ubigeo-peru/)
+* [Libro de Reclamaciones y Quejas](https://wordpress.org/plugins/libro-de-reclamaciones-y-quejas/)
+* [Comprobante de Pago Perú](https://wordpress.org/plugins/comprobante-de-pago-peru/)
+* [Tipo Documento Perú](https://wordpress.org/plugins/tipo-documento-peru/)
+* [Transferencia Bancaria Perú](https://wordpress.org/plugins/transferencia-bancaria-peru/)
+* [Utils para WooCommerce y WordPress](https://wordpress.org/plugins/wp-utils/)
+* [Multi Link in Bio](https://wordpress.org/plugins/multi-link-in-bio/)
+* [Display Price Free](https://wordpress.org/plugins/display-price-free/)
+
+= View more plugins PREMIUM =
+
+* [Costo de envío de Ubigeo Perú](https://renzotejada.com/plugin/costo-de-envio-de-ubigeo-de-peru-para-woocommerce/)
+* [Libro de Reclamaciones y Quejas PRO](https://renzotejada.com/plugin/libro-de-reclamaciones-y-quejas-pro/)
+* [WooYape para WooCommerce](https://renzotejada.com/plugin/wooyape-para-woocommerce/)
+* [WooLukita para WooCommerce](https://renzotejada.com/plugin/woolukita-para-woocommerce/)
+* [WooPlin para WooCommerce](https://renzotejada.com/plugin/wooplin-para-woocommerce/)
+* [WooTunki para WooCommerce](https://renzotejada.com/plugin/wootunki-para-woocommerce/)
+* [WooBilletera para WooCommerce](https://renzotejada.com/plugin/woobilletera-para-woocommerce/)
+
+
+Visit our [plugins overview page](https://renzotejada.com/categoria-producto/plugins/) for more information.
+
 == Installation ==
 
 Automatic installation
@@ -47,44 +73,6 @@ Manual FTP installation
 2. Go to your FTP folder on your web server.
 3. Copy the directory Payment Receipt for Peru into the following address wp-content/plugins/
 4. Activate the plugin from the WordPress administration panel.
-
-
-== Installation ==
-
-This section describes how to install the plugin and get it working.
-
-e.g.
-
-1. Upload the plugin files to the `/wp-content/plugins/plugin-name` directory, or install the plugin through the WordPress plugins screen directly.
-1. Activate the plugin through the 'Plugins' screen in WordPress
-1. Use the Settings->Plugin Name screen to configure the plugin
-1. (Make your instructions match the desired user flow for activating and installing your plugin. Include any steps that might be needed for explanatory purposes)
-
-= View more plugins =
-
-For additional functionality, check out our companion plugin, such as:
-
-* [Ubigeo Perú](https://wordpress.org/plugins/ubigeo-peru/)
-* [Libro de Reclamaciones y Quejas](https://wordpress.org/plugins/libro-de-reclamaciones-y-quejas/)
-* [Comprobante de Pago Perú] (https://wordpress.org/plugins/comprobante-de-pago-peru/)
-* [Tipo Documento Perú] (https://wordpress.org/plugins/tipo-documento-peru/)
-* [Transferencia Bancaria Perú] (https://wordpress.org/plugins/transferencia-bancaria-peru/)
-* [Utils para WooCommerce y WordPress] (https://wordpress.org/plugins/wp-utils/)
-* [Multi Link in Bio] (https://wordpress.org/plugins/multi-link-in-bio/)
-* [Display Price Free] (https://wordpress.org/plugins/display-price-free/)
-
-= View more plugins PREMIUM =
-
-* [Costo de envío de Ubigeo Perú](https://renzotejada.com/plugin/costo-de-envio-de-ubigeo-de-peru-para-woocommerce/)
-* [Libro de Reclamaciones y Quejas PRO] (https://renzotejada.com/plugin/libro-de-reclamaciones-y-quejas-pro/)
-* [WooYape para WooCommerce] (https://renzotejada.com/plugin/wooyape-para-woocommerce/)
-* [WooLukita para WooCommerce] https://renzotejada.com/plugin/woolukita-para-woocommerce/)
-* [WooPlin para WooCommerce] (https://renzotejada.com/plugin/wooplin-para-woocommerce/)
-* [WooTunki para WooCommerce] (https://renzotejada.com/plugin/wootunki-para-woocommerce/)
-* [WooBilletera para WooCommerce] (https://renzotejada.com/plugin/woobilletera-para-woocommerce/)
-
-
-Visit our [plugins overview page](https://renzotejada.com/categoria-producto/plugins/) for more information.
 
 == Frequently Asked Questions ==
 
