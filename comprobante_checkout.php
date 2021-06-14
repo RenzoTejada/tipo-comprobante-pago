@@ -35,14 +35,14 @@ function rt_comprobante_add_checkout_field( $checkout )
         'type' => 'number',
         'class' => array( 'form-row-wide' ),
         'label' => __('DNI', 'rt-tipo-comprobante'),
-        'required' => false,
+        'required' => false
     ), $checkout->get_value( 'billing_dni' ) );
 
     woocommerce_form_field( 'billing_ruc', array(
         'type' => 'number',
         'class' => array( 'form-row-wide' ),
         'label' => __('RUC', 'rt-tipo-comprobante'),
-        'required' => false,
+        'required' => false
     ), $checkout->get_value( 'billing_ruc' ) );
 
     woocommerce_form_field( 'billing_responsable', array(
@@ -88,16 +88,22 @@ function rt_comprobante_validate_checkout_field( $fields )
         wc_add_notice( '<b>'. __('Please enter your Type of Receipt', 'rt-tipo-comprobante') .'</b> is a required field.', 'error' );
     }
 
-    if($_POST['billing_comprobante'] == 'boleta'){
-        if ( ! $_POST['billing_first_name'] ) {
-            wc_add_notice( '<b>'. __('Please enter your First Name', 'rt-tipo-comprobante') .'</b> is a required field.', 'error' );
+    if($_POST['billing_comprobante'] == 'boleta') {
+        if (!$_POST['billing_first_name']) {
+            wc_add_notice('<b>' . __('Please enter your First Name', 'rt-tipo-comprobante') . '</b> is a required field.', 'error');
         }
-        if ( ! $_POST['billing_last_name'] ) {
-            wc_add_notice( '<b>'. __('Please enter your Last Name', 'rt-tipo-comprobante') .'</b> is a required field.', 'error' );
+        if (!$_POST['billing_last_name']) {
+            wc_add_notice('<b>' . __('Please enter your Last Name', 'rt-tipo-comprobante') . '</b> is a required field.', 'error');
 
         }
-        if ( ! $_POST['billing_dni'] ) {
-            wc_add_notice( '<b>'. __('Please enter your DNI', 'rt-tipo-comprobante') .'</b> is a required field.', 'error' );
+        if (!$_POST['billing_dni']) {
+            wc_add_notice('<b>' . __('Please enter your DNI', 'rt-tipo-comprobante') . '</b> is a required field.', 'error');
+        }
+
+        if ($_POST['billing_dni']) {
+            if (strlen($_POST['billing_dni']) < 8) {
+                wc_add_notice('<b>' . __('Please enter 8 digits of your DNI', 'rt-tipo-comprobante') . '</b> is a required field.', 'error');
+            }
         }
     }
 
@@ -178,3 +184,17 @@ function rt_comprobante_show_custom_fields_thankyou($order_id)
 }
 
 add_action('woocommerce_thankyou', 'rt_comprobante_show_custom_fields_thankyou', 20);
+
+function rt_comprobante_get_product_order($response, $object, $request)
+{
+    if (empty($response->data))
+        return $response;
+
+    $response->data['billing']['tipo_comprobante'] = get_post_meta($response->data['id'], '_comprobante', true);
+    $response->data['billing']['dni'] = get_post_meta($response->data['id'], '_dni', true);
+    $response->data['billing']['ruc'] = get_post_meta($response->data['id'], '_ruc', true);
+    $response->data['billing']['responsable'] = get_post_meta($response->data['id'], '_responsable', true);
+    return $response;
+}
+
+add_filter("woocommerce_rest_prepare_shop_order_object", "rt_comprobante_get_product_order", 10, 3);

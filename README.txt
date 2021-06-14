@@ -60,6 +60,32 @@ e.g.
 1. Use the Settings->Plugin Name screen to configure the plugin
 1. (Make your instructions match the desired user flow for activating and installing your plugin. Include any steps that might be needed for explanatory purposes)
 
+= View more plugins =
+
+For additional functionality, check out our companion plugin, such as:
+
+* [Ubigeo Perú](https://wordpress.org/plugins/ubigeo-peru/)
+* [Libro de Reclamaciones y Quejas](https://wordpress.org/plugins/libro-de-reclamaciones-y-quejas/)
+* [Comprobante de Pago Perú] (https://wordpress.org/plugins/comprobante-de-pago-peru/)
+* [Tipo Documento Perú] (https://wordpress.org/plugins/tipo-documento-peru/)
+* [Transferencia Bancaria Perú] (https://wordpress.org/plugins/transferencia-bancaria-peru/)
+* [Utils para WooCommerce y WordPress] (https://wordpress.org/plugins/wp-utils/)
+* [Multi Link in Bio] (https://wordpress.org/plugins/multi-link-in-bio/)
+* [Display Price Free] (https://wordpress.org/plugins/display-price-free/)
+
+= View more plugins PREMIUM =
+
+* [Costo de envío de Ubigeo Perú](https://renzotejada.com/plugin/costo-de-envio-de-ubigeo-de-peru-para-woocommerce/)
+* [Libro de Reclamaciones y Quejas PRO] (https://renzotejada.com/plugin/libro-de-reclamaciones-y-quejas-pro/)
+* [WooYape para WooCommerce] (https://renzotejada.com/plugin/wooyape-para-woocommerce/)
+* [WooLukita para WooCommerce] https://renzotejada.com/plugin/woolukita-para-woocommerce/)
+* [WooPlin para WooCommerce] (https://renzotejada.com/plugin/wooplin-para-woocommerce/)
+* [WooTunki para WooCommerce] (https://renzotejada.com/plugin/wootunki-para-woocommerce/)
+* [WooBilletera para WooCommerce] (https://renzotejada.com/plugin/woobilletera-para-woocommerce/)
+
+
+Visit our [plugins overview page](https://renzotejada.com/categoria-producto/plugins/) for more information.
+
 == Frequently Asked Questions ==
 
 = Where did you get the data for Payment Receipt for Peru? =
@@ -77,6 +103,12 @@ The information was obtained from the following urls:
 
 
 == Changelog ==
+
+= 0.1.2 (14/06/2021) =
+Fix: validando versión WC 5.4.1.
+Fix: actualizando Plugin URI.
+Fix: se agrega validación al campo dni
+Fix: se muestra la data en api rest de wc.
 
 = 0.1.1 (12/05/2021) =
 fix: corrección de link del notice.

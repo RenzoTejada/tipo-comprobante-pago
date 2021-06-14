@@ -85,6 +85,20 @@ jQuery(document).ready(function () {
     rt_comprobante_cambiar();
 });
 
+jQuery('#billing_dni').blur(function (event) {
+    var dni = jQuery('#billing_dni').val();
+    rt_comprobante_validar_dni(dni);
+});
+
+function rt_comprobante_validar_dni(dni) {
+
+    if (dni.length > 8) {
+        jQuery('#billing_dni').val('');
+        alert('El dni ingresado es incorrecto');
+        jQuery('#billing_dni').focus();
+    }
+}
+
 (function ($) {
     jQuery.fn.Rut = function (options) {
         var defaults = {
