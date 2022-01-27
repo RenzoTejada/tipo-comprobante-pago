@@ -63,7 +63,8 @@ function rt_comprobante_able_woocommerce_loading_css_js()
         // Check if it's any of WooCommerce page
         global $wp;
         if ( is_checkout() && empty( $wp->query_vars['order-received'] ) ) {
-                wp_register_script('comprobante_script', plugins_url('js/comprobante.js', __FILE__), array(), Version_RT_Tipo_Comprobante, true);
+//                wp_register_script('comprobante_script', plugins_url('js/comprobante.js', __FILE__), array(), Version_RT_Tipo_Comprobante, true);
+                wp_register_script('comprobante_script', plugins_url('js/comprobante.js', __FILE__), array(), 10, true);
                 wp_enqueue_script('comprobante_script');
         }
     }

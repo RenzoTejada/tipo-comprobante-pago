@@ -2,7 +2,7 @@
 Contributors: renzotejada
 Tags: boleta, factura, dni, ruc, perú
 Requires at least: 5.2
-Tested up to: 5.7.2
+Tested up to: 5.9
 Stable tag: trunk
 Requires PHP: 5.6
 License: GPLv2 or later
@@ -91,6 +91,12 @@ The information was obtained from the following urls:
 
 
 == Changelog ==
+
+= 0.1.3 (27/01/2022) =
+Fix: validando versión WC 6.1.1
+Fix: validando versión WP 5.9
+Fix: se corrige error del algoritmo de validación de ruc.
+Fix: se mejora el mensaje de error de DNI y RUC.
 
 = 0.1.2 (14/06/2021) =
 Fix: validando versión WC 5.4.1.
