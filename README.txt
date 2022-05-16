@@ -1,8 +1,8 @@
 === Comprobante de Pago Perú ===
-Contributors: renzotejada
+Contributors: renzotejada, drplugins
 Tags: boleta, factura, dni, ruc, perú
 Requires at least: 5.2
-Tested up to: 5.9
+Tested up to: 6.0
 Stable tag: trunk
 Requires PHP: 5.6
 License: GPLv2 or later
@@ -91,6 +91,10 @@ The information was obtained from the following urls:
 
 
 == Changelog ==
+
+= 0.1.4 (16/05/2022) =
+Fix: validando versión WC 6.5.1
+Fix: validando versión WP 6.0
 
 = 0.1.3 (27/01/2022) =
 Fix: validando versión WC 6.1.1
