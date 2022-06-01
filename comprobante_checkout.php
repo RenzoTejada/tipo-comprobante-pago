@@ -32,7 +32,7 @@ function rt_comprobante_add_checkout_field( $checkout )
     ), $checkout->get_value( 'billing_comprobante' ) );
 
     woocommerce_form_field( 'billing_dni', array(
-        'type' => 'number',
+        'type' => 'text',
         'class' => array( 'form-row-wide' ),
         'label' => __('DNI', 'rt-tipo-comprobante'),
         'required' => false
@@ -63,8 +63,8 @@ function rt_comprobante_able_woocommerce_loading_css_js()
         // Check if it's any of WooCommerce page
         global $wp;
         if ( is_checkout() && empty( $wp->query_vars['order-received'] ) ) {
-//                wp_register_script('comprobante_script', plugins_url('js/comprobante.js', __FILE__), array(), Version_RT_Tipo_Comprobante, true);
-                wp_register_script('comprobante_script', plugins_url('js/comprobante.js', __FILE__), array(), 10, true);
+                wp_register_script('comprobante_script', plugins_url('js/comprobante.js', __FILE__), array(), Version_RT_Tipo_Comprobante, true);
+//                wp_register_script('comprobante_script', plugins_url('js/comprobante.js', __FILE__), array(), 10, true);
                 wp_enqueue_script('comprobante_script');
         }
     }
@@ -100,9 +100,12 @@ function rt_comprobante_validate_checkout_field( $fields )
         if (!$_POST['billing_dni']) {
             wc_add_notice('<b>' . __('Please enter your DNI', 'rt-tipo-comprobante') . '</b> is a required field.', 'error');
         }
-
-        if ($_POST['billing_dni']) {
-            if (strlen($_POST['billing_dni']) < 8) {
+        $dni = sanitize_text_field($_POST['billing_dni']);
+        if ($dni) {
+            if (strlen($dni) != 8) {
+                wc_add_notice('<b>' . __('Please enter 8 digits of your DNI', 'rt-tipo-comprobante') . '</b> is a required field.', 'error');
+            }
+            if (!is_numeric($dni)) {
                 wc_add_notice('<b>' . __('Please enter 8 digits of your DNI', 'rt-tipo-comprobante') . '</b> is a required field.', 'error');
             }
         }
@@ -110,8 +113,17 @@ function rt_comprobante_validate_checkout_field( $fields )
 
     if($_POST['billing_comprobante'] == 'factura') {
 
-        if ( ! $_POST['billing_ruc'] ) {
+        $ruc = sanitize_text_field($_POST['billing_ruc']);
+        if ( ! $ruc ) {
             wc_add_notice( '<b>'. __('Please enter your RUC', 'rt-tipo-comprobante') .'</b> is a required field.', 'error' );
+        }
+        if ($ruc) {
+            if (strlen($ruc) != 11) {
+                wc_add_notice('<b>' . __('Please enter 11 digits of your RUC', 'rt-tipo-comprobante') . '</b> is a required field.', 'error');
+            }
+            if (!is_numeric($ruc)) {
+                wc_add_notice('<b>' . __('Please enter 11 digits of your RUC', 'rt-tipo-comprobante') . '</b> is a required field.', 'error');
+            }
         }
 
         if ( ! $_POST['billing_responsable'] ) {

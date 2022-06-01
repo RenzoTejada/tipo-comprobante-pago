@@ -92,6 +92,9 @@ The information was obtained from the following urls:
 
 == Changelog ==
 
+= 0.1.5 (01/06/2022) =
+Fix: validación de dni y ruc lado backend.
+
 = 0.1.4 (16/05/2022) =
 Fix: validando versión WC 6.5.1
 Fix: validando versión WP 6.0
