@@ -1,4 +1,9 @@
-jQuery("#billing_comprobante").select2();
+/*La función de Select2 no funciona desde wordpress manda al footer los js por lo que usando document y ready esperamos que la página esté cargada para recién llamar a la función select2 y que el plugin funcione correctamente*/
+jQuery(document).ready(function(  ) {
+	
+  $("#billing_comprobante").select2();
+	
+});
 
 var obj = document.getElementById("billing_comprobante_field");
 if (obj != null) {
