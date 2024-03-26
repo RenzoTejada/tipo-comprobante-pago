@@ -92,6 +92,10 @@ The information was obtained from the following urls:
 
 == Changelog ==
 
+= 0.1.9 (26/03/2024) =
+Fix: validando versión WC 8.7.0
+Fix: validando versión WP 6.4.3
+
 = 0.1.8 (22/03/2024) =
 Fix: validando versión WC 8.7.0
 Fix: validando versión WP 6.4.3
