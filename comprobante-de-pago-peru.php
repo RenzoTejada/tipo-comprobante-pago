@@ -9,7 +9,7 @@
  * Plugin Name:       Comprobante de Pago Perú
  * Plugin URI:        https://renzotejada.com/comprobante-de-pago-peru/
  * Description:       Payment Receipt for Peru where the option to choose bill or Invoice or others is added.
- * Version:           0.1.9
+ * Version:           0.2.0
  * Author:            Renzo Tejada
  * Author URI:        https://renzotejada.com/
  * License:           GNU General Public License v3.0
