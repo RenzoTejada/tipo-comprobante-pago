@@ -10,8 +10,6 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 Payment Receipt for Peru where the option to choose bill or Invoice or others is added.
 
-You will find this same information in the readme.txt of the plugin and on our website https://renzotejada.com
-
 == Description ==
 
 Payment Receipt for Peru where the option to choose bill or Invoice or others is added.
