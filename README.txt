@@ -1,11 +1,11 @@
 === Comprobante de Pago Perú ===
 Contributors: renzotejada, huakotech, alexistejada
 Tags: boleta, factura, dni, ruc, perú
-Requires at least: 6.2
-Tested up to: 6.7
-Stable tag: trunk
+Requires at least: 5.2
+Tested up to: 6.7.1
+Stable tag: 0.2.0
 Requires PHP: 7.4
-License: GPLv2 or later
+License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 Payment Receipt for Peru where the option to choose bill or Invoice or others is added.
@@ -89,6 +89,10 @@ The information was obtained from the following urls:
 
 
 == Changelog ==
+
+= 0.2.0 (15/01/2025) =
+Fix: validando versión WC 9.5.2
+Fix: validando versión WP 6.7.1
 
 = 0.1.9 (15/11/2024) =
 Fix: validando versión WC 9.4.1
