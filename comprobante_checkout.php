@@ -85,22 +85,22 @@ add_filter('woocommerce_checkout_fields', 'rt_comprobante_custom_wc_default_addr
 
 function rt_comprobante_validate_checkout_field( $fields )
 {
-    if ( ! $_POST['billing_comprobante'] ) {
+    if ( ! ( isset( $_POST['billing_comprobante'] ) ? sanitize_text_field( wp_unslash( $_POST['billing_comprobante'] ) ) : '' ) ) {
         wc_add_notice( '<b>'. __('Please enter your Type of Receipt', 'rt-tipo-comprobante') .'</b> is a required field.', 'error' );
     }
 
-    if($_POST['billing_comprobante'] == 'boleta') {
-        if (!$_POST['billing_first_name']) {
+    if(( isset( $_POST['billing_comprobante'] ) ? sanitize_text_field( wp_unslash( $_POST['billing_comprobante'] ) ) : '' ) == 'boleta') {
+        if (!( isset( $_POST['billing_first_name'] ) ? sanitize_text_field( wp_unslash( $_POST['billing_first_name'] ) ) : '' )) {
             wc_add_notice('<b>' . __('Please enter your First Name', 'rt-tipo-comprobante') . '</b> is a required field.', 'error');
         }
-        if (!$_POST['billing_last_name']) {
+        if (!( isset( $_POST['billing_last_name'] ) ? sanitize_text_field( wp_unslash( $_POST['billing_last_name'] ) ) : '' )) {
             wc_add_notice('<b>' . __('Please enter your Last Name', 'rt-tipo-comprobante') . '</b> is a required field.', 'error');
 
         }
-        if (!$_POST['billing_dni']) {
+        if (!( isset( $_POST['billing_dni'] ) ? sanitize_text_field( wp_unslash( $_POST['billing_dni'] ) ) : '' )) {
             wc_add_notice('<b>' . __('Please enter your DNI', 'rt-tipo-comprobante') . '</b> is a required field.', 'error');
         }
-        $dni = sanitize_text_field($_POST['billing_dni']);
+        $dni = sanitize_text_field(( isset( $_POST['billing_dni'] ) ? sanitize_text_field( wp_unslash( $_POST['billing_dni'] ) ) : '' ));
         if ($dni) {
             if (strlen($dni) != 8) {
                 wc_add_notice('<b>' . __('Please enter 8 digits of your DNI', 'rt-tipo-comprobante') . '</b> is a required field.', 'error');
@@ -111,9 +111,9 @@ function rt_comprobante_validate_checkout_field( $fields )
         }
     }
 
-    if($_POST['billing_comprobante'] == 'factura') {
+    if(( isset( $_POST['billing_comprobante'] ) ? sanitize_text_field( wp_unslash( $_POST['billing_comprobante'] ) ) : '' ) == 'factura') {
 
-        $ruc = sanitize_text_field($_POST['billing_ruc']);
+        $ruc = sanitize_text_field(( isset( $_POST['billing_ruc'] ) ? sanitize_text_field( wp_unslash( $_POST['billing_ruc'] ) ) : '' ));
         if ( ! $ruc ) {
             wc_add_notice( '<b>'. __('Please enter your RUC', 'rt-tipo-comprobante') .'</b> is a required field.', 'error' );
         }
@@ -126,11 +126,11 @@ function rt_comprobante_validate_checkout_field( $fields )
             }
         }
 
-        if ( ! $_POST['billing_responsable'] ) {
+        if ( ! ( isset( $_POST['billing_responsable'] ) ? sanitize_text_field( wp_unslash( $_POST['billing_responsable'] ) ) : '' ) ) {
             wc_add_notice( '<b>'. __('Please enter your Responsible', 'rt-tipo-comprobante') .'</b> is a required field.', 'error' );
         }
 
-        if ( ! $_POST['billing_company'] ) {
+        if ( ! ( isset( $_POST['billing_company'] ) ? sanitize_text_field( wp_unslash( $_POST['billing_company'] ) ) : '' ) ) {
             wc_add_notice( '<b>'. __('Please enter your Company', 'rt-tipo-comprobante') .'</b> is a required field.', 'error' );
         }
     }
@@ -160,40 +160,40 @@ function rt_comprobante_remove_checkout_optional_fields_label( $field, $key, $ar
 
 add_filter( 'woocommerce_form_field' , 'rt_comprobante_remove_checkout_optional_fields_label', 10, 4 );
 
-function rt_comprobante_save_checkout_field( $order_id )
-{
-    if ( $_POST['billing_comprobante'] ) update_post_meta( $order_id, '_comprobante', sanitize_text_field( $_POST['billing_comprobante'] ) );
-    if ( $_POST['billing_dni'] ) update_post_meta( $order_id, '_dni', sanitize_text_field($_POST['billing_dni'] ) );
-    if ( $_POST['billing_ruc'] ) update_post_meta( $order_id, '_ruc', sanitize_text_field($_POST['billing_ruc'] ) );
-    if ( $_POST['billing_responsable'] ) update_post_meta( $order_id, '_responsable', sanitize_text_field($_POST['billing_responsable'] ) );
+function rt_comprobante_save_checkout_field( $order, $data ) {
+    foreach ( array( 'billing_comprobante' => '_comprobante', 'billing_dni' => '_dni', 'billing_ruc' => '_ruc', 'billing_responsable' => '_responsable' ) as $source => $target ) {
+        if ( isset( $_POST[$source] ) ) { $order->update_meta_data( $target, sanitize_text_field( wp_unslash( $_POST[$source] ) ) ); }
+    }
 }
-add_action( 'woocommerce_checkout_update_order_meta', 'rt_comprobante_save_checkout_field' );
+add_action( 'woocommerce_checkout_create_order', 'rt_comprobante_save_checkout_field', 20, 2 );
 
 function rt_comprobante_show_checkout_field_order( $order )
 {
     $order_id = $order->get_id();
-    if ( get_post_meta( $order_id, '_comprobante', true ) ) echo '<p><strong>'.__('Type of Receipt', 'rt-tipo-comprobante').':</strong> ' . strtoupper(get_post_meta( $order_id, '_comprobante', true )) . '</p>';
-    if ( get_post_meta( $order_id, '_dni', true ) ) echo '<p><strong>'.__('DNI', 'rt-tipo-comprobante').':</strong> ' . get_post_meta( $order_id, '_dni', true ) . '</p>';
-    if ( get_post_meta( $order_id, '_ruc', true ) ) echo '<p><strong>'.__('RUC', 'rt-tipo-comprobante').':</strong> ' . get_post_meta( $order_id, '_ruc', true ) . '</p>';
-    if ( get_post_meta( $order_id, '_responsable', true ) ) echo '<p><strong>'.__('Responsible', 'rt-tipo-comprobante').':</strong> ' . get_post_meta( $order_id, '_responsable', true ) . '</p>';
+    if ( $order->get_meta( '_comprobante', true ) ) echo '<p><strong>'.__('Type of Receipt', 'rt-tipo-comprobante').':</strong> ' . strtoupper($order->get_meta( '_comprobante', true )) . '</p>';
+    if ( $order->get_meta( '_dni', true ) ) echo '<p><strong>'.__('DNI', 'rt-tipo-comprobante').':</strong> ' . esc_html( $order->get_meta('_dni', true) ) . '</p>';
+    if ( $order->get_meta( '_ruc', true ) ) echo '<p><strong>'.__('RUC', 'rt-tipo-comprobante').':</strong> ' . esc_html( $order->get_meta('_ruc', true) ) . '</p>';
+    if ( $order->get_meta( '_responsable', true ) ) echo '<p><strong>'.__('Responsible', 'rt-tipo-comprobante').':</strong> ' . esc_html( $order->get_meta('_responsable', true) ) . '</p>';
 }
 add_action( 'woocommerce_admin_order_data_after_billing_address', 'rt_comprobante_show_checkout_field_order', 1, 1 );
 
 function rt_comprobante_show_checkout_field_emails( $order, $sent_to_admin, $plain_text, $email )
 {
-    if ( get_post_meta( $order->get_id(), '_comprobante', true ) ) echo '<p><strong>'.__('Type of Receipt', 'rt-tipo-comprobante').':</strong> ' . strtoupper(get_post_meta( $order->get_id(), '_comprobante', true )) . '</p>';
-    if ( get_post_meta( $order->get_id(), '_dni', true ) ) echo '<p><strong>'.__('DNI', 'rt-tipo-comprobante').':</strong> ' . get_post_meta( $order->get_id(), '_dni', true ) . '</p>';
-    if ( get_post_meta( $order->get_id(), '_ruc', true ) ) echo '<p><strong>'.__('RUC', 'rt-tipo-comprobante').':</strong> ' . get_post_meta( $order->get_id(), '_ruc', true ) . '</p>';
-    if ( get_post_meta( $order->get_id(), '_responsable', true ) ) echo '<p><strong>'.__('Responsible', 'rt-tipo-comprobante').':</strong> ' . get_post_meta( $order->get_id(), '_responsable', true ) . '</p>';
+    if ( $order->get_meta( '_comprobante', true ) ) echo '<p><strong>'.__('Type of Receipt', 'rt-tipo-comprobante').':</strong> ' . strtoupper($order->get_meta( '_comprobante', true )) . '</p>';
+    if ( $order->get_meta( '_dni', true ) ) echo '<p><strong>'.__('DNI', 'rt-tipo-comprobante').':</strong> ' . esc_html( $order->get_meta('_dni', true) ) . '</p>';
+    if ( $order->get_meta( '_ruc', true ) ) echo '<p><strong>'.__('RUC', 'rt-tipo-comprobante').':</strong> ' . esc_html( $order->get_meta('_ruc', true) ) . '</p>';
+    if ( $order->get_meta( '_responsable', true ) ) echo '<p><strong>'.__('Responsible', 'rt-tipo-comprobante').':</strong> ' . esc_html( $order->get_meta('_responsable', true) ) . '</p>';
 }
 add_action( 'woocommerce_email_after_order_table', 'rt_comprobante_show_checkout_field_emails', 20, 4 );
 
 function rt_comprobante_show_custom_fields_thankyou($order_id)
 {
-    if ( get_post_meta( $order_id, '_comprobante', true ) ) echo '<p><strong>'.__('Type of Receipt', 'rt-tipo-comprobante').':</strong> ' . strtoupper(get_post_meta( $order_id, '_comprobante', true )) . '</p>';
-    if ( get_post_meta( $order_id, '_dni', true ) ) echo '<p><strong>'.__('DNI', 'rt-tipo-comprobante').':</strong> ' . get_post_meta( $order_id, '_dni', true ) . '</p>';
-    if ( get_post_meta( $order_id, '_ruc', true ) ) echo '<p><strong>'.__('RUC', 'rt-tipo-comprobante').':</strong> ' . get_post_meta( $order_id, '_ruc', true ) . '</p>';
-    if ( get_post_meta( $order_id, '_responsable', true ) ) echo '<p><strong>'.__('Responsible', 'rt-tipo-comprobante').':</strong> ' . get_post_meta( $order_id, '_responsable', true ) . '</p>';
+    $order = wc_get_order( $order_id );
+    if ( ! $order ) { return; }
+    if ( $order->get_meta( '_comprobante', true ) ) echo '<p><strong>'.__('Type of Receipt', 'rt-tipo-comprobante').':</strong> ' . strtoupper($order->get_meta( '_comprobante', true )) . '</p>';
+    if ( $order->get_meta( '_dni', true ) ) echo '<p><strong>'.__('DNI', 'rt-tipo-comprobante').':</strong> ' . esc_html( $order->get_meta('_dni', true) ) . '</p>';
+    if ( $order->get_meta( '_ruc', true ) ) echo '<p><strong>'.__('RUC', 'rt-tipo-comprobante').':</strong> ' . esc_html( $order->get_meta('_ruc', true) ) . '</p>';
+    if ( $order->get_meta( '_responsable', true ) ) echo '<p><strong>'.__('Responsible', 'rt-tipo-comprobante').':</strong> ' . esc_html( $order->get_meta('_responsable', true) ) . '</p>';
 }
 
 add_action('woocommerce_thankyou', 'rt_comprobante_show_custom_fields_thankyou', 20);
@@ -203,10 +203,10 @@ function rt_comprobante_get_product_order($response, $object, $request)
     if (empty($response->data))
         return $response;
 
-    $response->data['billing']['tipo_comprobante'] = get_post_meta($response->data['id'], '_comprobante', true);
-    $response->data['billing']['dni'] = get_post_meta($response->data['id'], '_dni', true);
-    $response->data['billing']['ruc'] = get_post_meta($response->data['id'], '_ruc', true);
-    $response->data['billing']['responsable'] = get_post_meta($response->data['id'], '_responsable', true);
+    $response->data['billing']['tipo_comprobante'] = $object->get_meta('_comprobante', true);
+    $response->data['billing']['dni'] = $object->get_meta('_dni', true);
+    $response->data['billing']['ruc'] = $object->get_meta('_ruc', true);
+    $response->data['billing']['responsable'] = $object->get_meta('_responsable', true);
     return $response;
 }
 

@@ -28,39 +28,33 @@ function comprobante_submenu_settings_callback()
         rt_comprobante_success_notice();
     }
     ?>
-    <style>
-        input[type=text], select {
-            width: 400px;
-            margin: 0;
-            padding: 6px !important;
-            box-sizing: border-box;
-            vertical-align: top;
-            height: auto;
-            line-height: 2;
-            min-height: 30px;
-        }
-    </style>
-    <div class="wrap woocommerce" >
-
-        <h1><?php _e('Peru receipt type | invoice or bill integration in Woocommerce checkout', 'rt-tipo-comprobante') ?></h1>
-
+    <div class="wrap woocommerce rt-comprobante-admin" >
+        <div class="rt-comprobante-header">
+            <div class="rt-comprobante-brand"><img src="<?php echo esc_url( plugins_url( 'assets/renzo-tejada-oficial.png', __FILE__ ) ); ?>" alt="Renzo Tejada Web Developer" /></div>
+            <div class="rt-comprobante-heading">
+                <h1>Comprobante de Pago Perú</h1>
+                <p>Configura los tipos de comprobantes disponibles en tu tienda WooCommerce.</p>
+                <span class="rt-comprobante-version">v<?php echo esc_html( Version_RT_Tipo_Comprobante ); ?></span>
+            </div>
+            <a class="button rt-comprobante-support" href="https://renzotejada.com/contacto/" target="_blank" rel="noopener noreferrer">Contacto y soporte</a>
+        </div>
         <hr>
         <h2 class="nav-tab-wrapper">
             <a href="?page=comprobante_settings&tab=docs" class="nav-tab <?php
             if ((!isset($_REQUEST['tab'])) || ($_REQUEST['tab'] == "docs")) {
                 print " nav-tab-active";
             }
-            ?>"><?php _e('Receipt', 'rt-tipo-comprobante') ?></a>
+            ?>"><?php esc_html_e('Comprobante', 'rt-tipo-comprobante') ?></a>
             <a href="?page=comprobante_settings&tab=help" class="nav-tab <?php
-            if ($_REQUEST['tab'] == "help") {
+            if (isset($_REQUEST['tab']) && $_REQUEST['tab'] == "help") {
                 print " nav-tab-active";
-            } ?>"><?php _e('Help', 'rt-tipo-comprobante') ?></a>
+            } ?>"><?php esc_html_e('Ayuda', 'rt-tipo-comprobante') ?></a>
         </h2>
 
         <?php
         if ((!isset($_REQUEST['tab'])) || ($_REQUEST['tab'] == "docs")) {
             comprobante_submenu_settings_docs();
-        } elseif ($_REQUEST['tab'] == "help") {
+        } elseif (isset($_REQUEST['tab']) && $_REQUEST['tab'] == "help") {
             comprobante_submenu_settings_help();
         }
         ?>
@@ -72,7 +66,7 @@ function comprobante_submenu_settings_docs()
 {
     ?>
 
-    <form method="post" action="options.php" id="comprobante_formulario">
+    <form method="post" action="options.php" id="comprobante_formulario" class="rt-comprobante-card">
         <?php settings_fields('comprobante_settings_group_docs'); ?>
         <?php do_settings_sections('comprobante_settings_group_docs'); ?>
 
@@ -133,7 +127,8 @@ function comprobante_submenu_settings_docs()
             </tr>
             </tbody>
         </table>
-        <?php submit_button(__( 'Save Changes', 'rt-tipo-comprobante' )); ?>
+        <?php submit_button(__( 'Guardar cambios', 'rt-tipo-comprobante' )); ?>
+        <div class="rt-comprobante-pro"><strong>¿Quieres conocer la versión PRO?</strong><p>Explora las funciones avanzadas de Comprobante de Pago Perú PRO.</p><a href="https://renzotejada.com/plugins/comprobante-de-pago-peru-pro-para-woocommerce/" target="_blank" rel="noopener noreferrer" class="button">Conocer la versión PRO</a></div>
     </form>
     <?php
 }
@@ -178,7 +173,7 @@ function comprobante_fe_errornosetup()
 function comprobante_submenu_settings_help()
 {
     ?>
-    <h2><?php _e('Help', 'rt-tipo-comprobante'); ?></h2>
+    <div class="rt-comprobante-card rt-comprobante-help"><h2>Ayuda y documentación</h2><p>Conoce las funciones del plugin y cómo ofrecer Boleta o Factura en tu tienda.</p>
 
     <h3><?php _e('What does this module do?', 'rt-tipo-comprobante'); ?></h3>
 
@@ -190,6 +185,7 @@ function comprobante_submenu_settings_help()
 
     <h3><?php _e('I have other questions', 'rt-tipo-comprobante'); ?></h3>
 
-    <p><?php _e('Go to', 'rt-tipo-comprobante'); ?> <a href="https://renzotejada.com/contacto?url=dashboard-wodpress" target="_blank"><?php _e('RT - Contact', 'rt-tipo-comprobante'); ?></a></p>
+    <p><a class="button" href="https://renzotejada.com/contacto/" target="_blank" rel="noopener noreferrer">Contactar con soporte</a></p>
+    <div class="rt-comprobante-pro"><strong>¿Necesitas más funcionalidades?</strong><p>Conoce Comprobante de Pago Perú PRO para WooCommerce.</p><a class="button button-primary" href="https://renzotejada.com/plugins/comprobante-de-pago-peru-pro-para-woocommerce/" target="_blank" rel="noopener noreferrer">Ver versión PRO</a></div></div>
     <?php
 }

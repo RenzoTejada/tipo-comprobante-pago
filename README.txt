@@ -2,15 +2,22 @@
 Contributors: renzotejada, huakotech, alexistejada
 Tags: boleta, factura, dni, ruc, perú
 Requires at least: 5.2
-Tested up to: 6.7.1
-Stable tag: 0.2.0
+Tested up to: 7.1.4
+Stable tag: 0.3.3
 Requires PHP: 7.4
+WC requires at least: 8.2
+WC tested up to: 11.2.1
 License: GPL-2.0-or-later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 Payment Receipt for Peru where the option to choose bill or Invoice or others is added.
 
 == Description ==
+
+Selecciona Boleta o Factura en el checkout, con DNI, RUC y responsable según el documento. Incluye integración inicial mediante la API de campos adicionales de Checkout Blocks. Los datos se conservan en los metadatos históricos de pedidos y se consultan mediante la API WooCommerce para HPOS.
+
+**Nota:** Checkout Blocks muestra sus campos adicionales en la sección de información del pedido; la visibilidad condicional y obligatoriedad específicas según boleta/factura requieren pruebas adicionales. Prueba el proceso en un sitio de staging antes de producción.
+
 
 Payment Receipt for Peru where the option to choose bill or Invoice or others is added.
 
@@ -89,6 +96,25 @@ The information was obtained from the following urls:
 
 
 == Changelog ==
+= 0.3.3 =
+* Separa el arranque de Free para evitar declaraciones duplicadas al coexistir con PRO 0.0.9.
+* Bloqueo de activación con mensaje explícito mientras PRO está activo.
+* No elimina ajustes ni datos históricos.
+
+
+= 0.3.2 =
+* Evita errores fatales al intentar activar Free con Comprobante de Pago Perú Pro 0.0.9 activo.
+* Muestra una advertencia clara de incompatibilidad; mantiene intactos datos y configuraciones.
+* No carga funciones duplicadas cuando PRO está activo.
+
+
+= 0.3.0 =
+* Ajustes administrativos renovados sin cambiar las claves guardadas.
+* Guardado de pedidos clásico mediante API WooCommerce para HPOS.
+* Registro de campos adicionales para Checkout Blocks, conservando los metadatos tradicionales.
+* Corrección de acceso a campos opcionales y JS más seguro para checkout clásico.
+* Actualización de metadatos de compatibilidad; pendiente prueba integral de checkout con Blocks.
+
 
 = 0.2.0 (15/01/2025) =
 Fix: validando versión WC 9.5.2
@@ -155,3 +181,10 @@ Fix Don’t use esc_ functions to sanitize.
 Deploy del plugin tipo de comprobante.
 
 
+
+
+= 0.3.1 =
+* Diseño administrativo renovado y uso del logotipo oficial Renzo Tejada.
+* Acceso visible a Comprobante de Pago Perú PRO desde configuración y ayuda.
+* Protección de activación Free cuando PRO esté activo; sin eliminación de ajustes ni metadatos de pedidos.
+* Conserva la integración existente con checkout clásico, HPOS y campos adicionales de Checkout Blocks (pendientes de validación condicional completa).
